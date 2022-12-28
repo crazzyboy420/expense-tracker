@@ -46,7 +46,7 @@ export default {
   },
   methods:{
    async deleteHandler(id) {
-      const res = await fetch(`api/transactions/${id}`, {
+      const res = await fetch(`https://expense-tracker-ndcd.onrender.com/transactions/${id}`, {
         method:"DELETE",
       });
 
@@ -55,7 +55,7 @@ export default {
         alert("There was an error!");
     },
     async addTransaction(transaction) {
-      const res = await fetch('api/transactions', {
+      const res = await fetch('https://expense-tracker-ndcd.onrender.com/transactions', {
         method: 'POST',
         body: JSON.stringify(transaction),
         headers: {
@@ -68,7 +68,7 @@ export default {
       this.transactions = [{...data},...this.transactions]
     },
     async fetchTransaction() {
-      const res = await fetch("api/transactions?_sort=id&_order=desc");
+      const res = await fetch("https://expense-tracker-ndcd.onrender.com/transactions?_sort=id&_order=desc");
 
       const data = await res.json();
 
